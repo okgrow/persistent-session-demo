@@ -2,16 +2,40 @@ if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('counter', 0);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+  Template.demo.helpers({
+    default: function () {
+      return Session.get('default');
+    },
+    temporary: function () {
+      return Session.get('temporary');
+    },
+    persistent: function () {
+      return Session.get('persistent');
+    },
+    auth: function () {
+      return Session.get('auth');
     }
   });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
+  Template.demo.events({
+    'change .default': function () {
+      var val = $(".default").val();
+      Session.set('default', val);
+    },
+    'change .temporary': function () {
+      var val = $(".temporary").val();
+      Session.setTemporary('temporary', val);
+    },
+    'change .persistent': function () {
+      var val = $(".persistent").val();
+      Session.setPersistent('persistent', val);
+    },
+    'change .auth': function () {
+      var val = $(".auth").val();
+      Session.setAuth('auth', val);
+    },
+    'click .clear': function() {
+      Session.clear();
     }
   });
 }

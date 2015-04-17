@@ -5,10 +5,15 @@
 <body>
   <h1>Welcome to Meteor!</h1>
 
-  {{> hello}}
+  {{> demo}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="demo">
+  <ol>
+    <li>Default: {{default}} <input type="text" class="default"/></li>
+    <li>Temporary: {{temporary}} <input type="text" class="temporary"/></li>
+    <li>Persistent: {{persistent}} <input type="text" class="persistent"/></li>
+    <li>Auth: {{auth}} <input type="text" class="auth"/></li>
+    <li><button class="clear">Clear</button></li>
+  </ol>
 </template>
