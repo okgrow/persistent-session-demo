@@ -36,6 +36,14 @@ if (Meteor.isClient) {
     },
     'click .clear': function() {
       Session.clear();
+    },
+    'click .multiset': function() {
+      Session.setPersistent({
+        auth: "multi-auth",
+        persistent: "multi-persist",
+        temporary: "multi-temp",
+        default: "multi-def"
+      });
     }
   });
 }
